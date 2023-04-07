@@ -14,9 +14,20 @@
 import PageHeader from './components/PageHeader.vue';
 import { darkTheme } from 'naive-ui'
 import { useAppStore } from './store';
-import { computed } from 'vue';
+import { computed, watch } from 'vue';
 
 const appStore = useAppStore();
+
+watch(() => appStore.theme,
+  () => {
+    const meta = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
+    console.log(meta);
+    if (meta) {
+      // 修改 content 属性
+      meta.setAttribute('content', appStore.theme == 'dark' ? 'black' : 'default');
+    }
+  }
+);
 
 const theme = computed(() => {
   if (appStore.theme == 'dark') {
