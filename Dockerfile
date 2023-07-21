@@ -20,8 +20,19 @@ RUN mkdir -p /app/backend
 
 RUN apk add --update caddy gcc musl-dev libffi-dev
 
+# 添加必要的系统库和构建工具
+RUN apk add --update --no-cache \
+    caddy \
+    gcc \
+    musl-dev \
+    libffi-dev \
+    openssl-dev \
+    cargo
+
 COPY backend/requirements.txt /tmp/requirements.txt
-RUN pip install -r /tmp/requirements.txt
+# RUN pip install -r /tmp/requirements.txt
+# 使用 -v 选项安装 Python 依赖以获取详细的日志输出
+RUN pip install -r /tmp/requirements.txt -v
 
 COPY Caddyfile /app/Caddyfile
 COPY backend /app/backend
