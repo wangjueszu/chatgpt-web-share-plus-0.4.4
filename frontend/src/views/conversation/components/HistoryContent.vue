@@ -13,6 +13,7 @@
           {{ $t('commons.currentConversationModel') }}:
           {{ getChatModelNameTrans(convHistory?.current_model || null) }} ({{ t(`sources.${convHistory?.source}`) }})
         </n-text>
+        <n-text> 故障/支援，点击这里： <a href="https://b1n.net/6HmF0">Sydney</a> </n-text>        
         <n-button v-if="_fullscreen" class="absolute left-4 hide-in-print" text @click="toggleFullscreenHistory">
           <template #icon>
             <n-icon>
