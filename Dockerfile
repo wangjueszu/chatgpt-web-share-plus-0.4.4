@@ -30,6 +30,8 @@ RUN apk add --update --no-cache \
     openssl-dev \
     cargo
 
+RUN pip install Cython
+
 COPY backend/requirements.txt /tmp/requirements.txt
 # RUN pip install -r /tmp/requirements.txt
 # 使用 -v 选项安装 Python 依赖以获取详细的日志输出
