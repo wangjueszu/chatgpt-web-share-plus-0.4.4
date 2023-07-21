@@ -69,10 +69,10 @@ jobs:
           cd frontend
           pnpm install
 
-      - name: build frontend
-        run: |
-          cd frontend
-          pnpm build
+    #  - name: build frontend
+    #    run: |
+   #       cd frontend
+    #      pnpm build
 
       # - name: Move ChatGPT-Proxy-V4 to backend
       #   run: |
