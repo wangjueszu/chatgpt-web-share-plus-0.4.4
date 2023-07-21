@@ -18,7 +18,8 @@ ARG TARGETARCH
 
 RUN mkdir -p /app/backend
 
-RUN apk add --update caddy gcc musl-dev libffi-dev
+# 添加这一行来安装 libyaml 和其他可能的依赖项
+RUN apk add --update caddy gcc musl-dev libffi-dev yaml-dev
 
 # 添加必要的系统库和构建工具
 RUN apk add --update --no-cache \
