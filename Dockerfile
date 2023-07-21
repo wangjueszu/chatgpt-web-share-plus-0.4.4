@@ -10,6 +10,9 @@ RUN pnpm build
 
 FROM python:3.10-alpine
 
+# 在安装其他 Python 依赖之前首先升级 pip
+RUN pip install --upgrade pip
+
 ARG PIP_CACHE_DIR=/pip_cache
 ARG TARGETARCH
 
