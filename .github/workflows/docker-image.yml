@@ -74,8 +74,8 @@ jobs:
       - name: Log in to Dockerhub
         uses: docker/login-action@v2
         with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }} 
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}        
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
@@ -83,7 +83,7 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: wangovst/chatgpt-web-share-plus-0.4.4
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
